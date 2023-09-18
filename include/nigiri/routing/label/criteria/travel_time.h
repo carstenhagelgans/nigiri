@@ -43,4 +43,12 @@ struct travel_time_dominator {
   }
 };
 
+struct travel_time_filter {
+  template <typename Label>
+  static bool is_filtered(Label const& l,
+                          duration_t const smallest_known_travel_time) {
+    return l.travel_time_ >= smallest_known_travel_time;
+  }
+};
+
 }  // namespace nigiri::routing
